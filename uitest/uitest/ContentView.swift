@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
+            .background(Color.red
+                            .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/))
     }
 }
 
