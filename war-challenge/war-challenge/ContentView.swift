@@ -9,37 +9,57 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-
-        VStack {
-            Image("logo")
-                .aspectRatio(contentMode: .fit)
+        ZStack {
             
-            Spacer()
+            Image("background").ignoresSafeArea()
             
-            HStack{
-                Image("card2")
+            VStack {
                 Spacer()
-                Image("card3")
-            }
-            
-            Spacer()
-            
-            Image("dealbutton")
-            
-            Spacer()
-            
-            HStack{
-                VStack {
-                    Text("Player")
-                    Text("0")
+                Image("logo")
+                    .aspectRatio(contentMode: .fit)
+                
+                Spacer()
+                
+                HStack{
+                    Spacer()
+                    Image("card2")
+                    Spacer()
+                    Image("card3")
+                    Spacer()
                 }
-                VStack {
-                    Text("CPU")
-                    Text("0")
+                
+                Spacer()
+                
+                Image("dealbutton")
+                
+                Spacer()
+                
+                HStack{
+                    Spacer()
+                    VStack {
+                        Text("Player")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 10)
+                        Text("0")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }
+                    Spacer()
+                    VStack {
+                        Text("CPU")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 10)
+                        Text("0")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }
+                    Spacer()
                 }
+                
+                Spacer()
             }
-            
-            Spacer()
         }
     }
 }
