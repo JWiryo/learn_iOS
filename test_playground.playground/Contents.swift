@@ -7,7 +7,7 @@ func myFunc(a:Int, b: Int) -> Int {
 myFunc(a: 10, b: 15)
 
 // Structure = Class in other languages
-struct ChatView {
+struct ChatView1 {
     
     // Properties
     var message:String = ""
@@ -28,4 +28,24 @@ struct ChatView {
         // Code to delete message
         print(messageWithPrefix)
     }
+}
+
+struct DatabaseManager {
+    
+    func saveData(data:String) -> Bool {
+        return true
+    }
+}
+
+struct ChatView {
+    
+    var message = "hello"
+    
+    func SendChat() {
+        
+        let db = DatabaseManager()
+        let successful = db.saveData(data: message)
+    }
+    
+    
 }
