@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// View is a Protocol
+/// Code inside protocol has to satisfy the structure requirement of the protocol
 struct ContentView: View {
     var body: some View {
         ZStack {
@@ -30,7 +32,9 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Image("dealbutton")
+                Button(action: {}, label: {
+                    Image("dealbutton")
+                })
                 
                 Spacer()
                 
