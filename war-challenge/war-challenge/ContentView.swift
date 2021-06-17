@@ -10,6 +10,16 @@ import SwiftUI
 // View is a Protocol
 /// Code inside protocol has to satisfy the structure requirement of the protocol
 struct ContentView: View {
+    
+    // State properties have special characteristics
+    /// 1. Data can be changed
+    /// 2. Any reference to State properties will get notified of data changes and UI will be updated automatically
+    
+    @State var playerCard = "card14"
+    @State var cpuCard = "card14"
+    @State var playerScore = 0
+    @State var cpuScore = 0
+    
     var body: some View {
         ZStack {
             
@@ -24,15 +34,33 @@ struct ContentView: View {
                 
                 HStack{
                     Spacer()
-                    Image("card2")
+                    Image(playerCard)
                     Spacer()
-                    Image("card3")
+                    Image(cpuCard)
                     Spacer()
                 }
                 
                 Spacer()
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    
+                    // Generate random number between 2 to 14
+                    let playerRand = Int.random(in: 2...14)
+                    let cpuRand = Int.random(in: 2...14)
+                    
+                    // Update Cards
+                    playerCard = "card" + String(playerRand)
+                    cpuCard = "card" + String(cpuRand)
+                    
+                    // Update Score
+                    if (playerRand > cpuRand) {
+                        playerScore += 1
+                    }
+                    else if (cpuRand > playerRand){
+                        cpuScore += 1
+                    }
+                    
+                }, label: {
                     Image("dealbutton")
                 })
                 
@@ -45,7 +73,7 @@ struct ContentView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(.bottom, 10)
-                        Text("0")
+                        Text(String(playerScore))
                             .font(.largeTitle)
                             .foregroundColor(.white)
                     }
@@ -55,7 +83,7 @@ struct ContentView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(.bottom, 10)
-                        Text("0")
+                        Text(String(cpuScore))
                             .font(.largeTitle)
                             .foregroundColor(.white)
                     }
